@@ -27,6 +27,30 @@ module Contest
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    config.generators do |g|
+      g.hidden_namespaces << :test_unit << :erb # Hide unwanted generators
+      g.assets false
+      g.helper false
+      g.view_specs false
+      g.migration false
+      g.skip_routes false
+      g.template_engine nil 
+      g.orm  :active_record
+      g.jbuilder true
+      g.test_framework  :rspec, :view_specs => false, :fixture_replacement => :factory_bot 
+      g.integration_tool :rspec
+      g.system_tests :rspec
+      g.fixture_replacement :factory_girl # Choose between fixtures and factories
+      g.factory_bot dir: 'test/factories'
+      g.scaffold_controller "responders_controller" # from responders gem
+      g.skip true
+      g.timestamps false
+      g.api true
+      g.fixture false
+      g.factory_bot true
+      g.colorize_logging
+    end
+
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
