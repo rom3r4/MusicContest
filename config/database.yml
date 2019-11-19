@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("DB_NAME") %> # _development
+  database: <%= ENV.fetch("DB_NAME") %>_development
   username: <%= ENV.fetch("DB_USER") %>
   password: <%= ENV.fetch("DB_PASS") %>
 

@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: song_cover
+#
+#  id        :integer          not null, primary key
+#  file_path :string
+#  file_type :string
+#  file_url  :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  file_path: MyString
+  file_type: MyString
+  file_url: MyString
+
+two:
+  file_path: MyString
+  file_type: MyString
+  file_url: MyString

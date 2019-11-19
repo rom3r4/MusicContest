@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: contest_song_participant_vote
+#
+#  id             :integer          not null, primary key
+#  participant_id :integer
+#  song_id        :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  participant: one
+  song: one
+
+two:
+  participant: two
+  song: two
