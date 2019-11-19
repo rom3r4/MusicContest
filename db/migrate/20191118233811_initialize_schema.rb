@@ -1,6 +1,6 @@
 class InitializeSchema < ActiveRecord::Migration[5.2]
 
-  # These are extensions that must be enabled in order to support this database
+   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contest", id: :serial, force: :cascade do |t|
