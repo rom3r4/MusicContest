@@ -7,3 +7,6 @@ Participant.create!([
 Song.create!([
   {spotify_id: "id1", spotify_url: "url1", spotify_title: "title1", spotify_artist: "artist1", spotify_length: 40, spotify_album: "album1", spotify_cover_id: nil, contest_id: 1, submitby_user_id: 1}
 ])
+ContestSongParticipantVote.create!([
+  {participant_id: 1, song_id: 1}
+])
