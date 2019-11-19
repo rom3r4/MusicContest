@@ -5,6 +5,11 @@ class MusicContestsController < ApplicationController
 
   respond_to :json
 
+  def current_contest
+    # TODO: mocked-up
+    render json: {}, status: 200
+  end
+
   def index
     @music_contests = MusicContest.all
     respond_with(@music_contests)
