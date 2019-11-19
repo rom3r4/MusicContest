@@ -13,6 +13,8 @@ Metrics/LineLength:
   Max: 120
   Exclude:
     - 'spec/**/*.rb'
+    - 'db/seeds.rb'
+    - 'app/views/**/*.jbuilder'
   IgnoredPatterns: ['\A#']
 
 # Too short methods lead to extraction of single-use methods, which can make
@@ -37,6 +39,7 @@ Metrics/BlockLength:
     - 'spec/**/*.rb'
     - 'Rakefile'
     - '**/*.rake'
+    - 'db/schema.rb'
 
 # No space makes the method definition shorter and differentiates
 # from a regular assignment.
