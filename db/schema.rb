@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_233811) do
   end
 
   create_table 'music_contest', id: :serial, force: :cascade do |t|
-    t.string 'contest_status', limit: 1
+    t.string 'contest_status', limit: 10
     t.integer 'winner_user_id'
     t.date 'start_date'
     t.date 'end_date'
