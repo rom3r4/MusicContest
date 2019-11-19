@@ -33,6 +33,18 @@ chdir APP_ROOT do
     puts "      export DB_PASS=your_database_passwd\n\n"
     env_variable_error = true
   end
+  if ENV['SPOTIFY_CLIENT_SECRET'].nil?
+    puts "- The environment variable 'SPOTIFY_CLIENT_SECRET' is not defined"
+    puts "  run:"
+    puts "      export SPOTIFY_CLIENT_SECRET=your_spotify_secret\n\n"
+    env_variable_error = true
+  end
+  if ENV['SPOTIFY_CLIENT_ID'].nil?
+    puts "- The environment variable 'SPOTIFY_CLIENT_ID' is not defined"
+    puts "  run:"
+    puts "      export SPOTIFY_CLIENT_ID=your_spotify_id\n\n"
+    env_variable_error = true
+  end
 
   if env_variable_error
     exit 1
@@ -57,5 +69,9 @@ chdir APP_ROOT do
   system! 'bin/rails restart'
 
   puts "\n== Running Rspec tests =="
-  system! 'bundle exec rake spec'
+  system 'bundle exec rake spec'
+
+  puts "\n== Running Rubocop tests =="
+  system 'bundle exec rubocop'
+
 end

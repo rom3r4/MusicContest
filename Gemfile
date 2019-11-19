@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'seed_dump'
+  gem 'rubocop'
 end
 
 group :development do

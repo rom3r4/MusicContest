@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
+    - 'test/**/*'
     - 'tmp/**/*'
     - '.git/**/*'
     - 'bundle/**/*'
