@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MusicContestsController < ApplicationController
-  before_action :set_music_contest, only: [:show, :update, :destroy]
+  before_action :set_music_contest, only: %i[show update destroy]
 
   respond_to :json
 
@@ -29,7 +31,7 @@ class MusicContestsController < ApplicationController
   end
 
   private
-  
+
   def set_music_contest
     @music_contest = MusicContest.find(params[:id])
   end

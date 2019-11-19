@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ContestSongParticipantVotesController < ApplicationController
-  before_action :set_contest_song_participant_vote, only: [:show, :update, :destroy]
+  before_action :set_contest_song_participant_vote, only: %i[show update destroy]
 
   respond_to :json
 
@@ -29,7 +31,7 @@ class ContestSongParticipantVotesController < ApplicationController
   end
 
   private
-  
+
   def set_contest_song_participant_vote
     @contest_song_participant_vote = ContestSongParticipantVote.find(params[:id])
   end

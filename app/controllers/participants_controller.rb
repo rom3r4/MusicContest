@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ParticipantsController < ApplicationController
-  before_action :set_participant, only: [:show, :update, :destroy]
+  before_action :set_participant, only: %i[show update destroy]
 
   respond_to :json
 
@@ -29,7 +31,7 @@ class ParticipantsController < ApplicationController
   end
 
   private
-  
+
   def set_participant
     @participant = Participant.find(params[:id])
   end

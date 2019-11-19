@@ -1,4 +1,6 @@
-require_relative 'boot'
+# frozen_string_literal: true
+
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -37,14 +39,14 @@ module Contest
       g.view_specs false
       g.migration false
       g.skip_routes false
-      g.template_engine nil 
-      g.orm  :active_record
+      g.template_engine nil
+      g.orm :active_record
       g.jbuilder true
-      g.test_framework  :rspec, :view_specs => false, :fixture_replacement => :factory_bot 
+      g.test_framework :rspec, view_specs: false, fixture_replacement: :factory_bot
       g.integration_tool :rspec
       g.system_tests :rspec
       g.fixture_replacement :factory_girl # Choose between fixtures and factories
-      g.factory_bot dir: 'test/factories'
+      g.factory_bot dir: "test/factories"
       g.scaffold_controller "responders_controller" # from responders gem
       g.skip true
       g.timestamps false
@@ -54,8 +56,8 @@ module Contest
       g.colorize_logging
     end
 
-    config.autoload_paths << Rails.root.join('lib')
-    config.eager_load_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join("lib")
+    config.eager_load_paths << Rails.root.join("lib")
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.

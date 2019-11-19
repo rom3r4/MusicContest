@@ -6,6 +6,5 @@ module Voting
       current_date = DateTime.now
       current_date.between?(start_date, end_date)
     end
-
   end
 end

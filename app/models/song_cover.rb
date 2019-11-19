@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: song_cover
@@ -9,7 +11,7 @@
 #
 
 class SongCover < ApplicationRecord
-  self.table_name = 'song_cover'
+  self.table_name = "song_cover"
 
-  belongs_to :song, class_name: 'Song', foreign_key: :id
+  belongs_to :song, class_name: "Song", foreign_key: :id
 end

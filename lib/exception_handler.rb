@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 # ExceptionHandler module to Handle errors globally
 # include ExceptionHandler in application_controller.rb
 
 module ExceptionHandler
-
   # Define custom error subclasses - rescue catches `StandardErrors`
   class AuthenticationError < StandardError; end
   class AccessDenied < StandardError; end
@@ -49,12 +50,12 @@ module ExceptionHandler
 
   # JSON response with message; Status code 404 - Not available
   def unavailable_method
-    render json: {error: 'Method is unavailable.'}, status: 404
+    render json: {error: "Method is unavailable."}, status: 404
   end
 
   # JSON response with message; Status code 400 - Not implemented
   def not_implemented_method
-    render json: {error: 'Method is not implemented.'}, status: 400
+    render json: {error: "Method is not implemented."}, status: 400
   end
 
   # JSON response with message; Status code 401 - Unauthorized
@@ -62,4 +63,3 @@ module ExceptionHandler
     render json: {error: e.message}, status: :unauthorized
   end
 end
-

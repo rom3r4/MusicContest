@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: participant
@@ -8,9 +10,9 @@
 #
 
 class Participant < ApplicationRecord
-  self.table_name = 'participant'
+  self.table_name = "participant"
 
-  has_many :music_contests, class_name: 'MusicContest'
-  has_many :songs, :class_name => 'Song'
-  has_many :contest_song_participant_votes, class_name: 'ContestSongParticipantVote'
+  has_many :music_contests, class_name: "MusicContest"
+  has_many :songs, class_name: "Song"
+  has_many :contest_song_participant_votes, class_name: "ContestSongParticipantVote"
 end

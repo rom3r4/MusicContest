@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SongCoversController < ApplicationController
-  before_action :set_song_cover, only: [:show, :update, :destroy]
+  before_action :set_song_cover, only: %i[show update destroy]
 
   respond_to :json
 
@@ -29,7 +31,7 @@ class SongCoversController < ApplicationController
   end
 
   private
-  
+
   def set_song_cover
     @song_cover = SongCover.find(params[:id])
   end

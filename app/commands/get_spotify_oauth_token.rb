@@ -1,10 +1,9 @@
+# frozen_string_literal: true
+
 class GetSpotifyOauthToken
   prepend SimpleCommand
 
-    def initialize
-    end
+  def initialize; end
 
-    def call
-    end
-
+  def call; end
 end
