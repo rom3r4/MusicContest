@@ -29,11 +29,12 @@ class ContestSongParticipantVotesController < ApplicationController
   end
 
   private
-    def set_contest_song_participant_vote
-      @contest_song_participant_vote = ContestSongParticipantVote.find(params[:id])
-    end
+  
+  def set_contest_song_participant_vote
+    @contest_song_participant_vote = ContestSongParticipantVote.find(params[:id])
+  end
 
-    def contest_song_participant_vote_params
-      params.require(:contest_song_participant_vote).permit(:participant_id, :song_id)
-    end
+  def contest_song_participant_vote_params
+    params.require(:contest_song_participant_vote).permit(:participant_id, :song_id)
+  end
 end

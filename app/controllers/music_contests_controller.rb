@@ -29,11 +29,12 @@ class MusicContestsController < ApplicationController
   end
 
   private
-    def set_music_contest
-      @music_contest = MusicContest.find(params[:id])
-    end
+  
+  def set_music_contest
+    @music_contest = MusicContest.find(params[:id])
+  end
 
-    def music_contest_params
-      params.require(:music_contest).permit(:contest_status, :winner_user_id, :start_date, :end_date)
-    end
+  def music_contest_params
+    params.require(:music_contest).permit(:contest_status, :winner_user_id, :start_date, :end_date)
+  end
 end

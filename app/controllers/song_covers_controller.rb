@@ -29,11 +29,12 @@ class SongCoversController < ApplicationController
   end
 
   private
-    def set_song_cover
-      @song_cover = SongCover.find(params[:id])
-    end
+  
+  def set_song_cover
+    @song_cover = SongCover.find(params[:id])
+  end
 
-    def song_cover_params
-      params.require(:song_cover).permit(:file_path, :file_type, :file_url)
-    end
+  def song_cover_params
+    params.require(:song_cover).permit(:file_path, :file_type, :file_url)
+  end
 end
