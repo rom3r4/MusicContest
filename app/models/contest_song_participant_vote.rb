@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: contest_song_participant_vote
+#
+#  id             :integer          not null, primary key
+#  participant_id :integer
+#  song_id        :integer
+#
+
 class ContestSongParticipantVote < ApplicationRecord
   self.table_name = 'contest_song_participant_vote'
 
