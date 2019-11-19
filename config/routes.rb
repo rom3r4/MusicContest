@@ -53,7 +53,7 @@ Rails.application.routes.draw do
     get "/current_contest_ranking",
         to: "contest_song_participant_votes#current_contest_ranking"
     post "/vote_song",
-        to: "contest_song_participant_votes#vote_song"
+         to: "contest_song_participant_votes#vote_song"
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
