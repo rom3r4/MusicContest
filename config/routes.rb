@@ -48,11 +48,11 @@ Rails.application.routes.draw do
     resources :contest_song_participant_votes
     get "/current_contest", to: "music_contests#current_contest"
     get "/current_contest_songs", to: "songs#current_contest_songs"
-    get "/delete_song", to: "songs#delete_submitted_song"
-    get "/submit_song", to: "songs#submit_song"
+    post "/delete_song", to: "songs#delete_submitted_song"
+    post "/submit_song", to: "songs#submit_song"
     get "/current_contest_ranking",
         to: "contest_song_participant_votes#current_contest_ranking"
-    get "/votesong",
+    post "/vote_song",
         to: "contest_song_participant_votes#vote_song"
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
