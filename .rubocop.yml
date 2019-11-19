@@ -13,6 +13,7 @@ Metrics/LineLength:
   Max: 120
   Exclude:
     - 'spec/**/*.rb'
+  IgnoredPatterns: ['\A#']
 
 # Too short methods lead to extraction of single-use methods, which can make
 # the code easier to read (by naming things), but can also clutter the class
@@ -28,7 +29,7 @@ Metrics/ClassLength:
 # The size of a block for a method.
 Metrics/BlockLength:
   CountComments: false
-  Max: 25
+  Max: 30
   ExcludedMethods: []
   Exclude:
     - '*.gemspec'
