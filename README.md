@@ -1,4 +1,4 @@
-# Weekly Music Contest 
+# Weekly Music Contest ![Logo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo")
 
 ## Rationale
 
@@ -69,7 +69,7 @@ T.B.C
 The design of internal database structure is as follows:
 
 
-![Database diagram](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Database diagram")
+![Database diagram](https://raw.githubusercontent.com/romera94/MusicContest/master/docs/diagram.png "Database diagram")
 
 
 ## License
