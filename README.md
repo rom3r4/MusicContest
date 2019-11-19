@@ -8,7 +8,7 @@ MB Music Contest API. This Rails Application will serve all the logic to manage 
 
 The application uses:
 
-* ruby 2.6.3 (ruby manager like `rvm` is useful here)
+* ruby 2.6.3 (a ruby manager like `rvm` is useful here)
 * Rails 5.2
 * bundler gem (`gem install bundler`)
 * git (recommended)
@@ -58,7 +58,7 @@ Now you can reach the API through your browser or an app like 'Postman' in
 
 ## Endpoint List
 
-The list of endpoints, payloads and methos is:
+The list of endpoints, payloads and methods is:
 
 
 T.B.C
@@ -66,7 +66,7 @@ T.B.C
 
 ## Design
 
-The design of internal database structure is as follows:
+The internal database structure design is as follows:
 
 
 ![Database diagram](https://raw.githubusercontent.com/romera94/MusicContest/master/docs/diagram.png "Database diagram")
