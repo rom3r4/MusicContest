@@ -1,5 +1,4 @@
 class InitializeSchema < ActiveRecord::Migration[5.2]
-
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -32,7 +31,7 @@ class InitializeSchema < ActiveRecord::Migration[5.2]
     t.integer 'contest_id'
     t.integer 'submitby_user_id', null: false
     t.index ['spotify_cover_id'], name: 'unq_song_spotify_cover_id', unique: true
-    t.index ['submitby_user_id'], name: 'unq_song_submitby_user_id', unique: true
+    t.index ['submitby_user_id'], name: 'unq_song_submitby_user_id'
   end
 
   create_table 'song_cover', id: :serial, force: :cascade do |t|
