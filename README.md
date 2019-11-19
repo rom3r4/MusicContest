@@ -1,4 +1,4 @@
-# Weekly Music Contest ![Logo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo")
+# ![Logo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo") Weekly Music Contest 
 
 ## Rationale
 
