@@ -32,9 +32,11 @@ The configuration is performed through environment variables.
 
 To setup the environment variables so they can point to your (postgres) database account, run:
 
-    $ export DB_NAME=your_database_name_here
-    $ export DB_USER=your_db_user_here
-    $ export DB_PASS=your_db_password_here
+    $ export SPOTIFY_CLIENT_SECRET=<your_spotify_client_secret_here>
+    $ export SPOTIFY_CLIENT_ID=<your_spotify_client_id_here>
+    $ export DB_NAME=<your_database_name_here>
+    $ export DB_USER=<your_db_user_here>
+    $ export DB_PASS=<your_db_password_here>
 
 
 ### Run the setup script
