@@ -33,6 +33,12 @@
 #                                PATCH  /contest_song_participant_votes/:id(.:format)                                            contest_song_participant_votes#update {:format=>:json}
 #                                PUT    /contest_song_participant_votes/:id(.:format)                                            contest_song_participant_votes#update {:format=>:json}
 #                                DELETE /contest_song_participant_votes/:id(.:format)                                            contest_song_participant_votes#destroy {:format=>:json}
+#                current_contest GET    /current_contest(.:format)                                                               music_contests#current_contest {:format=>:json}
+#                                GET    /current_contest_songs/:contest_id(.:format)                                             songs#current_contest_songs {:format=>:json}
+#                    delete_song POST   /delete_song(.:format)                                                                   songs#delete_submitted_song {:format=>:json}
+#                    submit_song POST   /submit_song(.:format)                                                                   songs#submit_song {:format=>:json}
+#        current_contest_ranking GET    /current_contest_ranking(.:format)                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
+#                      vote_song POST   /vote_song(.:format)                                                                     contest_song_participant_votes#vote_song {:format=>:json}
 #             rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #             rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show

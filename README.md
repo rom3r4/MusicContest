@@ -61,7 +61,47 @@ Now you can reach the API through your browser or an app like 'Postman' in
 The list of endpoints, payloads and methods is:
 
 
-T.B.C
+```
+Verb   URI Pattern                                                                              Controller#Action
+GET    /song_covers                                                                   song_covers#index {:format=>:json}
+POST   /song_covers                                                                   song_covers#create {:format=>:json}
+GET    /song_covers/:id                                                               song_covers#show {:format=>:json}
+PATCH  /song_covers/:id                                                               song_covers#update {:format=>:json}
+PUT    /song_covers/:id                                                               song_covers#update {:format=>:json}
+DELETE /song_covers/:id                                                               song_covers#destroy {:format=>:json}
+GET    /songs                                                                         songs#index {:format=>:json}
+POST   /songs                                                                         songs#create {:format=>:json}
+GET    /songs/:id                                                                     songs#show {:format=>:json}
+PATCH  /songs/:id                                                                     songs#update {:format=>:json}
+PUT    /songs/:id                                                                     songs#update {:format=>:json}
+DELETE /songs/:id                                                                     songs#destroy {:format=>:json}
+GET    /participants                                                                  participants#index {:format=>:json}
+POST   /participants                                                                  participants#create {:format=>:json}
+GET    /participants/:id                                                              participants#show {:format=>:json}
+PATCH  /participants/:id                                                              participants#update {:format=>:json}
+PUT    /participants/:id                                                              participants#update {:format=>:json}
+DELETE /participants/:id                                                              participants#destroy {:format=>:json}
+GET    /music_contests                                                                music_contests#index {:format=>:json}
+POST   /music_contests                                                                music_contests#create {:format=>:json}
+GET    /music_contests/:id                                                            music_contests#show {:format=>:json}
+PATCH  /music_contests/:id                                                            music_contests#update {:format=>:json}
+PUT    /music_contests/:id                                                            music_contests#update {:format=>:json}
+DELETE /music_contests/:id                                                            music_contests#destroy {:format=>:json}
+GET    /contest_song_participant_votes                                                contest_song_participant_votes#index {:format=>:json}
+POST   /contest_song_participant_votes                                                contest_song_participant_votes#create {:format=>:json}
+GET    /contest_song_participant_votes/:id                                            contest_song_participant_votes#show {:format=>:json}
+PATCH  /contest_song_participant_votes/:id                                            contest_song_participant_votes#update {:format=>:json}
+PUT    /contest_song_participant_votes/:id                                            contest_song_participant_votes#update {:format=>:json}
+DELETE /contest_song_participant_votes/:id                                            contest_song_participant_votes#destroy {:format=>:json}
+GET    /current_contest                                                               music_contests#current_contest {:format=>:json}
+GET    /current_contest_songs/:contest_id                                             songs#current_contest_songs {:format=>:json}
+POST   /delete_song                                                                   songs#delete_submitted_song {:format=>:json}
+POST   /submit_song                                                                   songs#submit_song {:format=>:json}
+GET    /current_contest_ranking                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
+POST   /vote_song                                                                     contest_song_participant_votes#vote_song {:format=>:json}
+
+```
+
 
 
 ## Design
