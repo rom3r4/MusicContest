@@ -64,23 +64,23 @@ The list of endpoints, payloads and methods is:
 Application Endpoints:
 
 ```
-**GET        /current_contest**
+GET        /current_contest
    return codes:
    -- 200: ok
 ```
 
 ```
-**GET        /current_contest_songs/:contest_id**
-   *incomplete*
+GET        /current_contest_songs/:contest_id
+   incomplete
 ```
 
 ```
-**POST       /delete_song**
-   *incomplete*
+POST       /delete_song
+   incomplete
 ```
 
 ```
-**POST       /submit_song**
+POST       /submit_song
    payload:
    {
 	"song": {
@@ -96,19 +96,19 @@ Application Endpoints:
 ```
 
 ```
-**GET        /current_contest_ranking**
+GET        /current_contest_ranking
 ```
 
 ```
-**POST       /vote_song**
-   *incomplete*
+POST       /vote_song
+   incomplete
 ```
 
 Usual/Default REST endpoints (standard payloads and return codes)
 
 ```
-**GET        /song_covers**
-**POST       /song_covers**
+GET        /song_covers
+POST       /song_covers
   sample payload:
   {
 	 "song_cover": {
@@ -118,13 +118,13 @@ Usual/Default REST endpoints (standard payloads and return codes)
 	 }
   }
 
-**GET        /song_covers/:id**
-**PATCH      /song_covers/:id**
-**PUT        /song_covers/:id**
-**DELETE     /song_covers/:id**
+GET        /song_covers/:id
+PATCH      /song_covers/:id
+PUT        /song_covers/:id
+DELETE     /song_covers/:id
 
-**GET        /songs**
-**POST       /songs**
+GET        /songs
+POST       /songs
   sample payload:
   {	
 	"song": {
@@ -138,13 +138,13 @@ Usual/Default REST endpoints (standard payloads and return codes)
 	"submitby_user_id":1
 	}
   }
-**GET        /songs/:id**
-**PATCH      /songs/:id**
-**PUT        /songs/:id**
-**DELETE     /songs/:id**
+GET        /songs/:id
+PATCH      /songs/:id
+PUT        /songs/:id
+DELETE     /songs/:id
 
-**GET        /participants**
-**POST       /participants**
+GET        /participants
+POST       /participants
   sample payload:
   {
     "participant": {
@@ -152,13 +152,13 @@ Usual/Default REST endpoints (standard payloads and return codes)
         "surname": "surname1"
     }
   }
-**GET        /participants/:id**
-**PATCH      /participants/:id**
-**PUT        /participants/:id**
-**DELETE     /participants/:id**
+GET        /participants/:id
+PATCH      /participants/:id
+PUT        /participants/:id
+DELETE     /participants/:id
 
-**GET        /music_contests**
-**POST       /music_contests**
+GET        /music_contests
+POST       /music_contests
   sample payload:
   {
     "music_contest": {
@@ -169,13 +169,13 @@ Usual/Default REST endpoints (standard payloads and return codes)
         "end_date": "2019-09-01"
     }
   }
-**GET        /music_contests/:id**
-**PATCH      /music_contests/:id**
-**PUT        /music_contests/:id**
-**DELETE     /music_contests/:id**
+GET        /music_contests/:id
+PATCH      /music_contests/:id
+PUT        /music_contests/:id
+DELETE     /music_contests/:id
 
-**GET        /contest_song_participant_votes**
-**POST       /contest_song_participant_votes**
+GET        /contest_song_participant_votes
+POST       /contest_song_participant_votes
   sample payload:
   {  
     "contest_song_participant_vote": {
@@ -183,10 +183,10 @@ Usual/Default REST endpoints (standard payloads and return codes)
         "song_id": 1
     }
   }
-**GET        /contest_song_participant_votes/:id**
-**PATCH      /contest_song_participant_votes/:id**
-**PUT        /contest_song_participant_votes/:id**
-**DELETE     /contest_song_participant_votes/:id**
+GET        /contest_song_participant_votes/:id
+PATCH      /contest_song_participant_votes/:id
+PUT        /contest_song_participant_votes/:id
+DELETE     /contest_song_participant_votes/:id
 ```
 
 
