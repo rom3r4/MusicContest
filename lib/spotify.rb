@@ -17,6 +17,10 @@ module Spotify
     attr_accessor :raw_response
     attr_reader :client_token
 
+    #
+    # The methods do not keep any state in the server (Representational state transfer)
+    #
+
     def authenticate(client_id, client_secret)
       @client_id = client_id
       @client_secret = client_secret
@@ -26,28 +30,28 @@ module Spotify
       @client_token
     end
 
-    def spotify_id_from_url(_spotify_url)
+    def id_from_url(_spotify_url)
       "__test_spotify_id__"
     end
 
-    def spotify_title
+    def title(_spotify_id)
       "__test_spotify_title__"
     end
 
-    def spotify_cover_url
+    def cover(_spotify_id)
       "__test_spotify_cover_url__"
     end
 
-    def spotify_artist
+    def artist(_spotify_id)
       "__test_spotify_artist__"
     end
 
-    def spotify_track_length
+    def length(_spotify_id)
       # value in seconds
       120
     end
 
-    def spotify_album
+    def album(_spotify_id)
       "__test_spotify_album__"
     end
 

@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe "Songs", type: :request do
   let(:params) {
-    {song: {participant_id: 1, song_url: "spotify.com"}}
+    {song: {participant_id: 1, spotify_url: "spotify.com/__id__"}}
   }
 
   describe "GET /songs" do
@@ -19,15 +19,15 @@ RSpec.describe "Songs", type: :request do
       expect(response).to have_http_status(200)
     end
   end
-  describe "POST /delete_song" do
-    it "post /delete_song endpoint exists and is correct" do
-      post "/delete_song", params: params
-      expect(response).to have_http_status(200)
-    end
-  end
   describe "POST /submit_song" do
     it "post /submit_song endpoint exists and is correct" do
       post "/submit_song", params: params
+      expect(response).to have_http_status(201)
+    end
+  end
+  describe "POST /delete_song" do
+    it "post /delete_song endpoint exists and is correct" do
+      post "/delete_song", params: params
       expect(response).to have_http_status(200)
     end
   end
