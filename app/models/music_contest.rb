@@ -5,7 +5,8 @@
 # Table name: music_contest
 #
 #  id             :integer          not null, primary key
-#  contest_status :string(1)
+#  contest_status :string(10)
+#  topic          :string(520)
 #  winner_user_id :integer
 #  start_date     :date
 #  end_date       :date

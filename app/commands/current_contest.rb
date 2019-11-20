@@ -12,8 +12,8 @@ class CurrentContest
   private
 
   def current_contest
-    contest = MusicContest.where("date(now()) between start_date and end_date").order("start_date DESC")[0]
-    nil if contest.nil?
+    contest = MusicContest.where("date(now()) between start_date and end_date")
+                    .where(contest_status: "active").order("start_date DESC")[0]              
     contest
   end
 end
