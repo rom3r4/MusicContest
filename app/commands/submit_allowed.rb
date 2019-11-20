@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AllowedSubmit
+class SubmitAllowed
   prepend SimpleCommand
 
   def initialize(user_id)
@@ -8,12 +8,12 @@ class AllowedSubmit
   end
 
   def call
-    allowed_submit
+    submit_allowed
   end
 
   private
 
-  def allowed_submit
+  def submit_allowed
     @current_contest = CurrentContest.call
 
     raise ExceptionHandler::ContestNotFound, "Contest Not Found" unless
