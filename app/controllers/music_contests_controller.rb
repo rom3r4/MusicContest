@@ -6,8 +6,10 @@ class MusicContestsController < ApplicationController
   respond_to :json
 
   def current_contest
-    # TODO: mocked-up
-    render json: {}, status: 200
+    command = CurrentContest.call
+    raise ExceptionHandler::ContestNotFound, "Contest Not Found" unless command.success?
+
+    render json: {current_contest: command.result}, status: :ok
   end
 
   def index

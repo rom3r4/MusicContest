@@ -3,9 +3,7 @@
 class CurrentContest
   prepend SimpleCommand
 
-  def initialize(song_id)
-    @song_id = song_id
-  end
+  def initialize; end
 
   def call
     current_contest
@@ -14,6 +12,8 @@ class CurrentContest
   private
 
   def current_contest
-    false
+    contest = MusicContest.where("date(now()) between start_date and end_date").order("start_date DESC")[0]
+    nil if contest.nil?
+    contest
   end
 end

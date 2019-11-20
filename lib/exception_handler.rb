@@ -10,6 +10,7 @@ module ExceptionHandler
   class UnavailableMethodError < StandardError; end
   class NotImplementedMethodError < StandardError; end
   class InvalidArgumentError < StandardError; end
+  class ContestNotFound < StandardError; end
 
   def self.included(including_class)
     including_class.class_eval do
@@ -19,10 +20,10 @@ module ExceptionHandler
 
       # Custom handlers
       rescue_from ExceptionHandler::InvalidArgumentError, with: :four_two_two
-      rescue_from ExceptionHandler::AuthenticationError, with: :generic_unauthorized
       rescue_from ExceptionHandler::AccessDenied, with: :access_denied
       rescue_from ExceptionHandler::UnavailableMethodError, with: :unavailable_method
       rescue_from ExceptionHandler::NotImplementedMethodError, with: :not_implemented_method
+      rescue_from ExceptionHandler::ContestNotFound, with: :contest_not_found
     end
   end
 
@@ -61,5 +62,11 @@ module ExceptionHandler
   # JSON response with message; Status code 401 - Unauthorized
   def generic_unauthorized(raised_exception)
     render json: {error: raised_exception.message}, status: :unauthorized
+  end
+
+  # Custon Application Exceptions Status codes 450 - 499
+
+  def contest_not_found(raised_exception)
+    render json: {error: raised_exception.message}, status: 450
   end
 end

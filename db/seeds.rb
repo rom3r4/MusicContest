@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 MusicContest.create!([
-                       {contest_status: "active", winner_user_id: nil, start_date: nil, end_date: nil}
+                       {contest_status: "active", winner_user_id: nil, topic: "topic1", start_date: "2019-01-01", end_date: "2019-12-01"},
+                       {contest_status: "active", winner_user_id: nil, topic: "topic2", start_date: "2019-09-01", end_date: "2019-12-01"},
+                       {contest_status: "active", winner_user_id: nil, topic: "topic3", start_date: "2019-10-01", end_date: "2019-12-01"}
                      ])
 Participant.create!([
                       {name: "name1", surname: "surname1"},

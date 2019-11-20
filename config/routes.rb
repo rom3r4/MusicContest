@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     resources :music_contests
     resources :contest_song_participant_votes
     get "/current_contest", to: "music_contests#current_contest"
-    get "/current_contest_songs", to: "songs#current_contest_songs"
+    get "/current_contest_songs/:contest_id", to: "songs#current_contest_songs"
     post "/delete_song", to: "songs#delete_submitted_song"
     post "/submit_song", to: "songs#submit_song"
     get "/current_contest_ranking",

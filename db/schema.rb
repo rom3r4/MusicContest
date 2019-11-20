@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20_191_118_233_811) do
 
   create_table "music_contest", id: :serial, force: :cascade do |t|
     t.string "contest_status", limit: 10
+    t.string "topic", limit: 512
     t.integer "winner_user_id"
     t.date "start_date"
     t.date "end_date"
