@@ -28,7 +28,7 @@ RSpec.describe "Songs", type: :request do
   describe "POST /delete_song" do
     it "post /delete_song endpoint exists and is correct" do
       post "/delete_song", params: params
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(450)
     end
   end
 end

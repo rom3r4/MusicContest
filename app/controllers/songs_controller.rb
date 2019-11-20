@@ -2,8 +2,8 @@
 
 class SongsController < ApplicationController
   before_action :set_song, only: %i[show update destroy]
-  before_action :current_participant, only: %i[submit_song delete_submitted_song]
-  before_action :submitted_spotify_song, only: %i[submit_song]
+  before_action :current_participant, :check_participant_exists,
+                :submitted_spotify_song, only: %i[submit_song delete_submitted_song]
 
   include Spotify
 
@@ -15,14 +15,11 @@ class SongsController < ApplicationController
   end
 
   def submit_song
-    raise ExceptionHandler::UserNotFound, "Participant Not Found" unless @submitting_user.presence
-
     unless submit_allowed
       raise ExceptionHandler::MaximumSongsSubmitted,
             "You have already submitted your maximum allowed songs"
     end
-
-    if song_has_already_been_submitted
+    unless submitted_song_does_not_exists
       raise ExceptionHandler::SongWasAlreadySubmitted,
             "This song has already been submitted to a different contest"
     end
@@ -33,8 +30,11 @@ class SongsController < ApplicationController
   end
 
   def delete_submitted_song
-    # TODO: mocked-up
-    render json: {}, status: 200
+    raise ExceptionHandler::SongNotFound, "The song must exist" if submitted_song_does_not_exists
+    raise ExceptionHandler::ParticipantCannotDelete, "Participant can not delete this song" unless delete_allowed
+
+    @submitted_song.destroy
+    respond_with(@submitted_song)
   end
 
   def index
@@ -78,23 +78,24 @@ class SongsController < ApplicationController
     @submitted_song = Song.where(spotify_id: @spotify_id).first
   end
 
-  def song_params
-    params.require(:song).permit(:spotify_id, :spotify_url, :spotify_title,
-                                 :spotify_artist, :spotify_length, :spotify_album,
-                                 :spotify_cover_id, :contest_id, :submitby_user_id,
-                                 :participant_id)
+  def submitted_song_does_not_exists
+    @submitted_song.nil?
   end
 
   def submit_allowed
     SongSubmitAllowed.call(@submitting_user).result
   end
 
-  def song_has_already_been_submitted
-    !@submitted_song.nil?
+  def delete_allowed
+    SongDeleteAllowed.call(@submitting_user.id, @submitted_song.id)
   end
 
   def current_contest
     CurrentContest.call.result
+  end
+
+  def check_participant_exists
+    raise ExceptionHandler::UserNotFound, "Participant Not Found" unless @submitting_user.presence
   end
 
   def new_song
@@ -109,5 +110,12 @@ class SongsController < ApplicationController
       contest_id:       current_contest.id,
       submitby_user_id: @submitting_user.id
     }
+  end
+
+  def song_params
+    params.require(:song).permit(:spotify_id, :spotify_url, :spotify_title,
+                                 :spotify_artist, :spotify_length, :spotify_album,
+                                 :spotify_cover_id, :contest_id, :submitby_user_id,
+                                 :participant_id)
   end
 end

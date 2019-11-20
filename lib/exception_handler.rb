@@ -12,8 +12,10 @@ module ExceptionHandler
   class InvalidArgumentError < StandardError; end
   class ContestNotFound < StandardError; end
   class ParticipantNotFound < StandardError; end
+  class SongNotFound < StandardError; end
   class SongWasAlreadySubmitted < StandardError; end
   class MaximumSongsSubmitted < StandardError; end
+  class ParticipantCannotDelete < StandardError; end
 
   def self.included(including_class)
     including_class.class_eval do
@@ -28,8 +30,10 @@ module ExceptionHandler
       rescue_from ExceptionHandler::NotImplementedMethodError, with: :not_implemented_method
       rescue_from ExceptionHandler::ContestNotFound, with: :application_not_found
       rescue_from ExceptionHandler::ParticipantNotFound, with: :application_not_found
+      rescue_from ExceptionHandler::SongNotFound, with: :application_not_found
       rescue_from ExceptionHandler::SongWasAlreadySubmitted, with: :song_was_already_sumbitted
       rescue_from ExceptionHandler::MaximumSongsSubmitted, with: :maximum_songs_submitted
+      rescue_from ExceptionHandler::ParticipantCannotDelete, with: :participant_cannot_delete
     end
   end
 
@@ -82,5 +86,9 @@ module ExceptionHandler
 
   def maximum_songs_submitted(raised_exception)
     render json: {error: raised_exception.message}, status: 452
+  end
+
+  def participant_cannot_delete(raised_exception)
+    render json: {error: raised_exception.message}, status: 453
   end
 end
