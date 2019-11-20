@@ -73,7 +73,6 @@ GET        /current_contest
 
 ```
 GET        /current_contest_songs
-   incomplete
 ```
 
 ```
