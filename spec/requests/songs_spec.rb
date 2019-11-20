@@ -13,9 +13,9 @@ RSpec.describe "Songs", type: :request do
       expect(response).to have_http_status(200)
     end
   end
-  describe "GET /current_contest_songs/:contest_id" do
+  describe "GET /current_contest_songs" do
     it "get /current_contest_songs endpoint exists and is correct" do
-      get "/current_contest_songs/1"
+      get "/current_contest_songs"
       expect(response).to have_http_status(200)
     end
   end

@@ -4,8 +4,8 @@ require "rails_helper"
 
 RSpec.describe SongsController, type: :routing do
   describe "routing" do
-    it "routes to #current_contest_songs/:contest_id" do
-      expect(get: "/current_contest_songs/1").to route_to("songs#current_contest_songs", format: :json, contest_id: "1")
+    it "routes to #current_contest_songs" do
+      expect(get: "/current_contest_songs").to route_to("songs#current_contest_songs", format: :json)
     end
 
     it "routes to #delete_submitted_song" do

@@ -10,7 +10,12 @@ class SongsController < ApplicationController
   respond_to :json
 
   def current_contest_songs
-    @songs = Songs.where(contest_id: current_contest)
+    @songs = Song.where(contest_id: current_contest)
+    songs = @songs
+    songs.each_with_index do |_song, index|
+      votes = {"votes": ContestSongParticipantVote.where(song_id: songs[index].id).count}
+      @songs[index].as_json.merge(votes)
+    end
     respond_with(@songs)
   end
 
