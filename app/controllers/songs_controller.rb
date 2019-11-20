@@ -13,11 +13,16 @@ class SongsController < ApplicationController
 
   def submit_song
     raise ExceptionHandler::UserNotFound, "Participant Not Found" unless @current_user_id.presence
-    raise ExceptionHandler::MaximumSongsSubmitted, 
-                "You have already submitted your maximum allowed songs" unless submit_allowed  
 
-    raise ExceptionHandler::SongWasAlreadySubmitted, 
-                "This song has already been submitted to a different contest" unless song_allowed  
+    unless submit_allowed
+      raise ExceptionHandler::MaximumSongsSubmitted,
+            "You have already submitted your maximum allowed songs"
+    end
+
+    unless song_allowed
+      raise ExceptionHandler::SongWasAlreadySubmitted,
+            "This song has already been submitted to a different contest"
+    end
 
     render json: {}, status: :ok
   end
@@ -69,7 +74,7 @@ class SongsController < ApplicationController
                                  :song_url, :participant_id)
   end
 
-  def submit_allowed 
+  def submit_allowed
     SubmitAllowed.call(@current_user_id).result
   end
 

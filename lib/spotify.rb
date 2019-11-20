@@ -26,6 +26,31 @@ module Spotify
       @client_token
     end
 
+    def spotify_id_from_url(_spotify_url)
+      "__test_spotify_id__"
+    end
+
+    def spotify_title
+      "__test_spotify_title__"
+    end
+
+    def spotify_cover_url
+      "__test_spotify_cover_url__"
+    end
+
+    def spotify_artist
+      "__test_spotify_artist__"
+    end
+
+    def spotify_track_length
+      # value in seconds
+      120
+    end
+
+    def spotify_album
+      "__test_spotify_album__"
+    end
+
     private
 
     def auth_header
