@@ -62,44 +62,43 @@ The list of endpoints, payloads and methods is:
 
 
 ```
-Verb   URI Pattern                                                                              Controller#Action
-GET    /song_covers                                                                   song_covers#index {:format=>:json}
-POST   /song_covers                                                                   song_covers#create {:format=>:json}
-GET    /song_covers/:id                                                               song_covers#show {:format=>:json}
-PATCH  /song_covers/:id                                                               song_covers#update {:format=>:json}
-PUT    /song_covers/:id                                                               song_covers#update {:format=>:json}
-DELETE /song_covers/:id                                                               song_covers#destroy {:format=>:json}
-GET    /songs                                                                         songs#index {:format=>:json}
-POST   /songs                                                                         songs#create {:format=>:json}
-GET    /songs/:id                                                                     songs#show {:format=>:json}
-PATCH  /songs/:id                                                                     songs#update {:format=>:json}
-PUT    /songs/:id                                                                     songs#update {:format=>:json}
-DELETE /songs/:id                                                                     songs#destroy {:format=>:json}
-GET    /participants                                                                  participants#index {:format=>:json}
-POST   /participants                                                                  participants#create {:format=>:json}
-GET    /participants/:id                                                              participants#show {:format=>:json}
-PATCH  /participants/:id                                                              participants#update {:format=>:json}
-PUT    /participants/:id                                                              participants#update {:format=>:json}
-DELETE /participants/:id                                                              participants#destroy {:format=>:json}
-GET    /music_contests                                                                music_contests#index {:format=>:json}
-POST   /music_contests                                                                music_contests#create {:format=>:json}
-GET    /music_contests/:id                                                            music_contests#show {:format=>:json}
-PATCH  /music_contests/:id                                                            music_contests#update {:format=>:json}
-PUT    /music_contests/:id                                                            music_contests#update {:format=>:json}
-DELETE /music_contests/:id                                                            music_contests#destroy {:format=>:json}
-GET    /contest_song_participant_votes                                                contest_song_participant_votes#index {:format=>:json}
-POST   /contest_song_participant_votes                                                contest_song_participant_votes#create {:format=>:json}
-GET    /contest_song_participant_votes/:id                                            contest_song_participant_votes#show {:format=>:json}
-PATCH  /contest_song_participant_votes/:id                                            contest_song_participant_votes#update {:format=>:json}
-PUT    /contest_song_participant_votes/:id                                            contest_song_participant_votes#update {:format=>:json}
-DELETE /contest_song_participant_votes/:id                                            contest_song_participant_votes#destroy {:format=>:json}
-GET    /current_contest                                                               music_contests#current_contest {:format=>:json}
-GET    /current_contest_songs/:contest_id                                             songs#current_contest_songs {:format=>:json}
-POST   /delete_song                                                                   songs#delete_submitted_song {:format=>:json}
-POST   /submit_song                                                                   songs#submit_song {:format=>:json}
-GET    /current_contest_ranking                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
-POST   /vote_song                                                                     contest_song_participant_votes#vote_song {:format=>:json}
-
+Verb       URI Pattern
+GET        /song_covers
+POST       /song_covers
+GET        /song_covers/:id
+PATCH      /song_covers/:id
+PUT        /song_covers/:id
+DELETE     /song_covers/:id
+GET        /songs
+POST       /songs
+GET        /songs/:id
+PATCH      /songs/:id
+PUT        /songs/:id
+DELETE     /songs/:id
+GET        /participants
+POST       /participants
+GET        /participants/:id
+PATCH      /participants/:id
+PUT        /participants/:id
+DELETE     /participants/:id
+GET        /music_contests
+POST       /music_contests
+GET        /music_contests/:id
+PATCH      /music_contests/:id
+PUT        /music_contests/:id
+DELETE     /music_contests/:id
+GET        /contest_song_participant_votes
+POST       /contest_song_participant_votes
+GET        /contest_song_participant_votes/:id
+PATCH      /contest_song_participant_votes/:id
+PUT        /contest_song_participant_votes/:id
+DELETE     /contest_song_participant_votes/:id
+GET        /current_contest
+GET        /current_contest_songs/:contest_id
+POST       /delete_song
+POST       /submit_song
+GET        /current_contest_ranking
+POST       /vote_song
 ```
 
 
