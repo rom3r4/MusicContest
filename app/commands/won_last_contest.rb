@@ -15,8 +15,8 @@ class WonLastContest
 
   def last_contest
     contest = MusicContest.where("date(now()) > end_date")
-            .where(contest_status: "finished")
-            .where(winner_user_id: @user_id).order("end_date DESC")[0]  
+      .where(contest_status: "finished")
+      .where(winner_user_id: @user_id).order("end_date DESC")[0]
     false if contest.nil?
     true
   end

@@ -44,6 +44,6 @@ class MusicContestsController < ApplicationController
   end
 
   def music_contest_params
-    params.require(:music_contest).permit(:contest_status, :winner_user_id, :topic,  :start_date, :end_date)
+    params.require(:music_contest).permit(:contest_status, :winner_user_id, :topic, :start_date, :end_date)
   end
 end
