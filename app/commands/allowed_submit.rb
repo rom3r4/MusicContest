@@ -14,18 +14,21 @@ class AllowedSubmit
   private
 
   def allowed_submit
-    current_contest = CurrentContest.call
+    @current_contest = CurrentContest.call
 
-    raise ExceptionHandler::ContestNotFound, "Contest Not Found" unless current_contest.success?
+    raise ExceptionHandler::ContestNotFound, "Contest Not Found" unless
+              @current_contest.success? || @current_contest.result.nil?
 
-    current_contest_id = current_contest[:id]
-    
-    won_last_contest = WonLastContest.call(@user_id)
+    (won_last_contest && already_submitted_songs <= 2 ||
+                      !won_last_contest && already_submitted_songs <= 1)
+  end
 
-    already_submitted_songs = Song.where(submitby_user_id: @user_id).where(contest_id: current_contest_id)
+  def won_last_contest
+    WonLastContest.call(@user_id).result
+  end
 
-    true if won_last_contest && already_submitted_songs <= 2
-    true if !won_last_contest && already_submitted_songs <= 1
-    false
+  def already_submitted_songs
+    Song.where(submitby_user_id: @user_id)
+      .where(contest_id: @current_contest.result[:id]).count
   end
 end

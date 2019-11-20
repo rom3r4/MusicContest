@@ -40,7 +40,7 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    load Rails.root.join('db', 'seeds.rb')
+    load Rails.root.join("db", "seeds.rb")
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will

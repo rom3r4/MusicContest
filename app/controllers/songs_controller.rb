@@ -14,7 +14,9 @@ class SongsController < ApplicationController
   def submit_song
     raise ExceptionHandler::UserNotFound, "Participant Not Found" unless @current_user_id.presence
 
-    render json: {user_id: 1}, status: 200
+    submit_allowed = AllowedSubmit.call(@current_user_id).result
+
+    render json: {user_id: submit_allowed}, status: 200
   end
 
   def delete_submitted_song
