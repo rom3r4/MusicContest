@@ -78,7 +78,17 @@ GET        /current_contest_songs/:contest_id
 
 ```
 POST       /delete_song
-   incomplete
+   payload:
+   {
+	"song": {
+		"participant_id": integer (must exist),
+		"spotify_url": "https://spotify.com/...<id>..."
+	}
+   }
+   returns codes:
+    -- 450: the participant does not exists
+    -- 450: the song does not exists
+    -- 453: the participant does not own the submitted song
 ```
 
 ```
@@ -99,10 +109,16 @@ POST       /submit_song
 
 ```
 GET        /current_contest_ranking
+   incomplete
 ```
 
 ```
 POST       /vote_song
+   incomplete
+```
+
+```
+POST       /change_vote
    incomplete
 ```
 

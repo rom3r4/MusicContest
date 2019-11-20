@@ -39,6 +39,7 @@
 #                    submit_song POST   /submit_song(.:format)                                                                   songs#submit_song {:format=>:json}
 #        current_contest_ranking GET    /current_contest_ranking(.:format)                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
 #                      vote_song POST   /vote_song(.:format)                                                                     contest_song_participant_votes#vote_song {:format=>:json}
+#                    change_vote POST   /change_vote(.:format)                                                                   contest_song_participant_votes#change_vote {:format=>:json}
 #             rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 #      rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #             rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -60,6 +61,8 @@ Rails.application.routes.draw do
         to: "contest_song_participant_votes#current_contest_ranking"
     post "/vote_song",
          to: "contest_song_participant_votes#vote_song"
+    post "/change_vote",
+         to: "contest_song_participant_votes#change_vote"
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

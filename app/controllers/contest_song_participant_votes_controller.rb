@@ -15,6 +15,11 @@ class ContestSongParticipantVotesController < ApplicationController
     render json: {}, status: 200
   end
 
+  def change_vote
+    # TODO: mocked-up
+    render json: {}, status: 200
+  end
+
   def index
     @contest_song_participant_votes = ContestSongParticipantVote.all
     respond_with(@contest_song_participant_votes)
