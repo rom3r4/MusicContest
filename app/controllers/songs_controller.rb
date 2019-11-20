@@ -16,7 +16,6 @@ class SongsController < ApplicationController
       votes = {"votes": ContestSongParticipantVote.where(song_id: song.id).count}
       merged_songs << @songs[index].as_json.merge(votes)
     end
-    puts merged_songs.to_json
     respond_with(merged_songs)
   end
 
