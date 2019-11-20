@@ -56,10 +56,25 @@ Now you can reach the API through your browser or an app like 'Postman' in
 
     http://localhost:3000
 
-## Endpoint List
+## Endpoint List 
 
 The list of endpoints, payloads and methods is:
 
+`(W.I.P.)`
+
+
+Application Endpoints:
+
+```
+GET        /current_contest
+GET        /current_contest_songs/:contest_id
+POST       /delete_song
+POST       /submit_song
+GET        /current_contest_ranking
+POST       /vote_song
+```
+
+Default REST-API endpoints
 
 ```
 Verb       URI Pattern
@@ -93,12 +108,6 @@ GET        /contest_song_participant_votes/:id
 PATCH      /contest_song_participant_votes/:id
 PUT        /contest_song_participant_votes/:id
 DELETE     /contest_song_participant_votes/:id
-GET        /current_contest
-GET        /current_contest_songs/:contest_id
-POST       /delete_song
-POST       /submit_song
-GET        /current_contest_ranking
-POST       /vote_song
 ```
 
 
