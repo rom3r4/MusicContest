@@ -11,12 +11,13 @@ class SongsController < ApplicationController
 
   def current_contest_songs
     @songs = Song.where(contest_id: current_contest)
-    songs = @songs
-    songs.each_with_index do |_song, index|
-      votes = {"votes": ContestSongParticipantVote.where(song_id: songs[index].id).count}
-      @songs[index].as_json.merge(votes)
+    merged_songs = []
+    @songs.each_with_index do |song, index|
+      votes = {"votes": ContestSongParticipantVote.where(song_id: song.id).count}
+      merged_songs << @songs[index].as_json.merge(votes)
     end
-    respond_with(@songs)
+    puts merged_songs.to_json
+    respond_with(merged_songs)
   end
 
   def submit_song
