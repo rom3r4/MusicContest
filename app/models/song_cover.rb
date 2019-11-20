@@ -13,5 +13,5 @@
 class SongCover < ApplicationRecord
   self.table_name = "song_cover"
 
-  belongs_to :song, class_name: "Song", foreign_key: :id
+  has_many :songs, class_name: "Song"
 end

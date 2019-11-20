@@ -21,6 +21,6 @@ class Song < ApplicationRecord
 
   belongs_to :music_contest, class_name: "MusicContest", foreign_key: :contest_id
   belongs_to :participant, class_name: "Participant", foreign_key: :submitby_user_id
-  has_many :song_covers, class_name: "SongCover", foreign_key: :id
+  has_many :song_covers, class_name: "SongCover", foreign_key: :spotify_cover_id
   has_many :contest_song_participant_votes, class_name: "ContestSongParticipantVote"
 end

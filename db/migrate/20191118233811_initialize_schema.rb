@@ -32,7 +32,7 @@ class InitializeSchema < ActiveRecord::Migration[5.2]
     t.integer "spotify_cover_id"
     t.integer "contest_id"
     t.integer "submitby_user_id", null: false
-    t.index ["spotify_cover_id"], name: "unq_song_spotify_cover_id", unique: true
+    t.index ["spotify_cover_id"], name: "unq_song_spotify_cover_id"
     t.index ["submitby_user_id"], name: "unq_song_submitby_user_id"
   end
 
@@ -47,5 +47,5 @@ class InitializeSchema < ActiveRecord::Migration[5.2]
   add_foreign_key "music_contest", "participant", column: "winner_user_id", name: "fk_contest_participant"
   add_foreign_key "song", "music_contest", column: "contest_id", name: "fk_song_contest"
   add_foreign_key "song", "participant", column: "submitby_user_id", name: "fk_song_participant"
-  add_foreign_key "song_cover", "song", column: "id", primary_key: "spotify_cover_id", name: "fk_song_cover_song"
+  add_foreign_key "song", "song_cover", column: "spotify_cover_id", name: "fk_song_song_cover"
 end
