@@ -108,7 +108,7 @@ POST       /vote_song
 The internal database structure design is as follows:
 
 
-![Database diagram](https://raw.githubusercontent.com/romera94/MusicContest/master/docs/diagram.png "Database diagram")
+![Database diagram](https://raw.githubusercontent.com/romera94/MusicContest/master/docs/er_diagram.png "Database diagram")
 
 
 ## License
