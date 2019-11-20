@@ -60,54 +60,133 @@ Now you can reach the API through your browser or an app like 'Postman' in
 
 The list of endpoints, payloads and methods is:
 
-`(W.I.P.)`
-
 
 Application Endpoints:
 
 ```
-GET        /current_contest
-GET        /current_contest_songs/:contest_id
-POST       /delete_song
-POST       /submit_song
-GET        /current_contest_ranking
-POST       /vote_song
+**GET        /current_contest**
+   return codes:
+   -- 200: ok
 ```
 
-Default REST-API endpoints
+```
+**GET        /current_contest_songs/:contest_id**
+   *incomplete*
+```
 
 ```
-Verb       URI Pattern
-GET        /song_covers
-POST       /song_covers
-GET        /song_covers/:id
-PATCH      /song_covers/:id
-PUT        /song_covers/:id
-DELETE     /song_covers/:id
-GET        /songs
-POST       /songs
-GET        /songs/:id
-PATCH      /songs/:id
-PUT        /songs/:id
-DELETE     /songs/:id
-GET        /participants
-POST       /participants
-GET        /participants/:id
-PATCH      /participants/:id
-PUT        /participants/:id
-DELETE     /participants/:id
-GET        /music_contests
-POST       /music_contests
-GET        /music_contests/:id
-PATCH      /music_contests/:id
-PUT        /music_contests/:id
-DELETE     /music_contests/:id
-GET        /contest_song_participant_votes
-POST       /contest_song_participant_votes
-GET        /contest_song_participant_votes/:id
-PATCH      /contest_song_participant_votes/:id
-PUT        /contest_song_participant_votes/:id
-DELETE     /contest_song_participant_votes/:id
+**POST       /delete_song**
+   *incomplete*
+```
+
+```
+**POST       /submit_song**
+   payload:
+   {
+	"song": {
+		"participant_id": integer (must exist),
+		"spotify_url": "https://spotify.com/...<id>..."
+	}
+   }
+   returns codes:
+    -- 450: the participant does not exists
+    -- 451: the song was already submitted to other contest
+    -- 452: maximum allowed songs for that participant have already been submitted  
+
+```
+
+```
+**GET        /current_contest_ranking**
+```
+
+```
+**POST       /vote_song**
+   *incomplete*
+```
+
+Usual/Default REST endpoints (standard payloads and return codes)
+
+```
+**GET        /song_covers**
+**POST       /song_covers**
+  sample payload:
+  {
+	 "song_cover": {
+	 	"file_path": "/files/file1.jpeg",
+	 	"file_type": "jpeg",
+	 	"file_url": "https://s3.amazonws.com/"
+	 }
+  }
+
+**GET        /song_covers/:id**
+**PATCH      /song_covers/:id**
+**PUT        /song_covers/:id**
+**DELETE     /song_covers/:id**
+
+**GET        /songs**
+**POST       /songs**
+  sample payload:
+  {	
+	"song": {
+	"spotify_id": "id2", 
+	"spotify_url": "url2", 
+	"spotify_title": "title2",
+	"spotify_artist": "artist2", 
+	"spotify_length": 40, 
+	"spotify_album": "album1",
+	"contest_id": 1,
+	"submitby_user_id":1
+	}
+  }
+**GET        /songs/:id**
+**PATCH      /songs/:id**
+**PUT        /songs/:id**
+**DELETE     /songs/:id**
+
+**GET        /participants**
+**POST       /participants**
+  sample payload:
+  {
+    "participant": {
+        "name": "name1",
+        "surname": "surname1"
+    }
+  }
+**GET        /participants/:id**
+**PATCH      /participants/:id**
+**PUT        /participants/:id**
+**DELETE     /participants/:id**
+
+**GET        /music_contests**
+**POST       /music_contests**
+  sample payload:
+  {
+    "music_contest": {
+        "contest_status": "finished",
+        "topic": "topic6",
+        "winner_user_id": null,
+        "start_date": "2019-08-01",
+        "end_date": "2019-09-01"
+    }
+  }
+**GET        /music_contests/:id**
+**PATCH      /music_contests/:id**
+**PUT        /music_contests/:id**
+**DELETE     /music_contests/:id**
+
+**GET        /contest_song_participant_votes**
+**POST       /contest_song_participant_votes**
+  sample payload:
+  {  
+    "contest_song_participant_vote": {
+        "participant_id": 1,
+        "song_id": 1
+    }
+  }
+**GET        /contest_song_participant_votes/:id**
+**PATCH      /contest_song_participant_votes/:id**
+**PUT        /contest_song_participant_votes/:id**
+**DELETE     /contest_song_participant_votes/:id**
 ```
 
 
