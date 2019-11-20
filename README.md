@@ -72,7 +72,7 @@ GET        /current_contest
 ```
 
 ```
-GET        /current_contest_songs/:contest_id
+GET        /current_contest_songs
    incomplete
 ```
 

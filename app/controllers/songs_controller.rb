@@ -10,8 +10,8 @@ class SongsController < ApplicationController
   respond_to :json
 
   def current_contest_songs
-    # TODO: mocked-up
-    render json: {}, status: 200
+    @songs = Songs.where(contest_id: current_contest)
+    respond_with(@songs)
   end
 
   def submit_song

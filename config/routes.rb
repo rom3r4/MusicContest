@@ -34,7 +34,7 @@
 #                                PUT    /contest_song_participant_votes/:id(.:format)                                            contest_song_participant_votes#update {:format=>:json}
 #                                DELETE /contest_song_participant_votes/:id(.:format)                                            contest_song_participant_votes#destroy {:format=>:json}
 #                current_contest GET    /current_contest(.:format)                                                               music_contests#current_contest {:format=>:json}
-#                                GET    /current_contest_songs/:contest_id(.:format)                                             songs#current_contest_songs {:format=>:json}
+#                                GET    /current_contest_songs(.:format)                                             songs#current_contest_songs {:format=>:json}
 #                    delete_song POST   /delete_song(.:format)                                                                   songs#delete_submitted_song {:format=>:json}
 #                    submit_song POST   /submit_song(.:format)                                                                   songs#submit_song {:format=>:json}
 #        current_contest_ranking GET    /current_contest_ranking(.:format)                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     resources :music_contests
     resources :contest_song_participant_votes
     get "/current_contest", to: "music_contests#current_contest"
-    get "/current_contest_songs/:contest_id", to: "songs#current_contest_songs"
+    get "/current_contest_songs", to: "songs#current_contest_songs"
     post "/delete_song", to: "songs#delete_submitted_song"
     post "/submit_song", to: "songs#submit_song"
     get "/current_contest_ranking",
