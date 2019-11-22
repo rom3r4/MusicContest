@@ -56,7 +56,7 @@ module Contest
       g.colorize_logging
     end
 
-    #config.autoload_paths << %W(Rails.root.join("lib") Rails.root.join("lib/helpers"))
+    # config.autoload_paths << %W(Rails.root.join("lib") Rails.root.join("lib/helpers"))
     config.eager_load_paths += Dir["#{config.root}/lib/**/**/"]
 
     # Only loads a smaller set of middleware suitable for API only apps.

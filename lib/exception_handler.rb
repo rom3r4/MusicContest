@@ -16,6 +16,8 @@ module ExceptionHandler
   class SongWasAlreadySubmitted < StandardError; end
   class MaximumSongsSubmitted < StandardError; end
   class ParticipantCannotDelete < StandardError; end
+  class SpotifyAPIError < StandardError; end
+  class SpotifyURIParsingError < StandardError; end
 
   def self.included(including_class)
     including_class.class_eval do
@@ -34,6 +36,8 @@ module ExceptionHandler
       rescue_from ExceptionHandler::SongWasAlreadySubmitted, with: :song_was_already_sumbitted
       rescue_from ExceptionHandler::MaximumSongsSubmitted, with: :maximum_songs_submitted
       rescue_from ExceptionHandler::ParticipantCannotDelete, with: :participant_cannot_delete
+      rescue_from ExceptionHandler::SpotifyAPIError, with: :spotify_error
+      rescue_from ExceptionHandler::SpotifyURIParsingError, with: :spotify_uri_parsing_error
     end
   end
 
@@ -90,5 +94,13 @@ module ExceptionHandler
 
   def participant_cannot_delete(raised_exception)
     render json: {error: raised_exception.message}, status: 453
+  end
+
+  def spotify_error(raised_exception)
+    render json: {error: raised_exception.message}, status: 454
+  end
+
+  def spotify_uri_parsing_error(raised_exception)
+    render json: {error: raised_exception.message}, status: 455
   end
 end

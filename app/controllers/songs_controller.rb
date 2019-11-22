@@ -5,8 +5,6 @@ class SongsController < ApplicationController
   before_action :current_participant, :check_participant_exists,
                 :submitted_spotify_song, only: %i[submit_song delete_submitted_song]
 
-  helper Spotify
-
   respond_to :json
 
   def current_contest_ranking
@@ -83,9 +81,10 @@ class SongsController < ApplicationController
   end
 
   def submitted_spotify_song
-    @spotify_url = params[:song][:spotify_url]
-    @spotify_id = Spotify::id_from_url(@spotify_url)
-    @submitted_song = Song.where(spotify_id: @spotify_id).first
+    spotify_url = params[:song][:spotify_url]
+    @spotify = SpotifyService.new(spotify_url)
+    @spo = @spotify.fetch
+    @submitted_song = Song.where(spotify_id: @spotify.track_id).first
   end
 
   def submitted_song_does_not_exists
@@ -111,12 +110,12 @@ class SongsController < ApplicationController
   def new_song
     # TODO: Call SongCover.new(Spotify::cover(@spotify_id))
     {
-      spotify_id:       @spotify_id,
-      spotify_url:      @spotify_url,
-      spotify_title:    Spotify::title(@spotify_id),
-      spotify_artist:   Spotify::artist(@spotify_id),
-      spotify_length:   Spotify::length(@spotify_id),
-      spotify_album:    Spotify::album(@spotify_id),
+      spotify_id:       @spotify.track_id,
+      spotify_url:      @spotify.url,
+      spotify_title:    @spotify.title,
+      spotify_artist:   @spotify.artist,
+      spotify_length:   @spotify.length,
+      spotify_album:    @spotify.album,
       contest_id:       current_contest.id,
       submitby_user_id: @submitting_user.id
     }

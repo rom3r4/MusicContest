@@ -55,5 +55,5 @@ chdir APP_ROOT do
   system! "bundle exec rubocop"
 
   puts "\n== Running Rspec tests =="
-  system! "bundle exec rake spec"
+  system! 'SPOTIFY_CLIENT_ID="" SPOTIFY_CLIENT_SECRET="" bundle exec rake spec'
 end
