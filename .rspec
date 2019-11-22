@@ -1,1 +1,4 @@
+-I lib/helpers
 --require spec_helper
+--color
+ 

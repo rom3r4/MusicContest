@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   before_action :current_participant, :check_participant_exists,
                 :submitted_spotify_song, only: %i[submit_song delete_submitted_song]
 
-  include Spotify
+  helper Spotify
 
   respond_to :json
 
@@ -84,7 +84,7 @@ class SongsController < ApplicationController
 
   def submitted_spotify_song
     @spotify_url = params[:song][:spotify_url]
-    @spotify_id = Spotify.id_from_url(@spotify_url)
+    @spotify_id = Spotify::id_from_url(@spotify_url)
     @submitted_song = Song.where(spotify_id: @spotify_id).first
   end
 
@@ -113,10 +113,10 @@ class SongsController < ApplicationController
     {
       spotify_id:       @spotify_id,
       spotify_url:      @spotify_url,
-      spotify_title:    Spotify.title(@spotify_id),
-      spotify_artist:   Spotify.artist(@spotify_id),
-      spotify_length:   Spotify.length(@spotify_id),
-      spotify_album:    Spotify.album(@spotify_id),
+      spotify_title:    Spotify::title(@spotify_id),
+      spotify_artist:   Spotify::artist(@spotify_id),
+      spotify_length:   Spotify::length(@spotify_id),
+      spotify_album:    Spotify::album(@spotify_id),
       contest_id:       current_contest.id,
       submitby_user_id: @submitting_user.id
     }
