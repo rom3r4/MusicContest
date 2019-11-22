@@ -19,6 +19,12 @@ RSpec.describe "Songs", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+  describe "GET /current_contest_ranking" do
+    it "get /current_contest_ranking endpoint exists and is correct" do
+      get "/current_contest_ranking"
+      expect(response).to have_http_status(200)
+    end
+  end
   describe "POST /submit_song" do
     it "post /submit_song endpoint exists and is correct" do
       post "/submit_song", params: params

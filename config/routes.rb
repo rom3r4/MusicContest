@@ -37,7 +37,7 @@
 #                                GET    /current_contest_songs(.:format)                                             songs#current_contest_songs {:format=>:json}
 #                    delete_song POST   /delete_song(.:format)                                                                   songs#delete_submitted_song {:format=>:json}
 #                    submit_song POST   /submit_song(.:format)                                                                   songs#submit_song {:format=>:json}
-#        current_contest_ranking GET    /current_contest_ranking(.:format)                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
+#                          songs GET    /current_contest_ranking(.:format)                                                       contest_song_participant_votes#current_contest_ranking {:format=>:json}
 #                      vote_song POST   /vote_song(.:format)                                                                     contest_song_participant_votes#vote_song {:format=>:json}
 #                    change_vote POST   /change_vote(.:format)                                                                   contest_song_participant_votes#change_vote {:format=>:json}
 #             rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     post "/delete_song", to: "songs#delete_submitted_song"
     post "/submit_song", to: "songs#submit_song"
     get "/current_contest_ranking",
-        to: "contest_song_participant_votes#current_contest_ranking"
+        to: "songs#current_contest_ranking"
     post "/vote_song",
          to: "contest_song_participant_votes#vote_song"
     post "/change_vote",

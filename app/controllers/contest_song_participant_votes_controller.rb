@@ -5,11 +5,6 @@ class ContestSongParticipantVotesController < ApplicationController
 
   respond_to :json
 
-  def current_contest_ranking
-    # TODO: mocked-up
-    render json: {}, status: 200
-  end
-
   def vote_song
     # TODO: mocked-up
     render json: {}, status: 200

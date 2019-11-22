@@ -8,6 +8,10 @@ RSpec.describe SongsController, type: :routing do
       expect(get: "/current_contest_songs").to route_to("songs#current_contest_songs", format: :json)
     end
 
+    it "routes to #current_contest_ranking" do
+      expect(get: "/current_contest_ranking").to route_to("songs#current_contest_ranking", format: :json)
+    end
+
     it "routes to #delete_submitted_song" do
       expect(post: "/delete_song").to route_to("songs#delete_submitted_song", format: :json)
     end

@@ -9,6 +9,11 @@ class SongsController < ApplicationController
 
   respond_to :json
 
+  def current_contest_ranking
+    # TODO: mocked-up
+    render json: {}, status: 200
+  end
+
   def current_contest_songs
     @songs = Song.where(contest_id: current_contest)
     merged_songs = []
