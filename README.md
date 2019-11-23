@@ -207,34 +207,34 @@ DELETE     /contest_song_participant_votes/:id
 ```
 
 
-## Error Status codes
+## HTTP response return codes
 
 ```
-Status Code: 450 - Contest's Participant does not exists 
-```
-
-```
-Status Code: 450 - Contest does not exists 
+Code: 450 - Contest's Participant does not exists 
 ```
 
 ```
-Status Code: 451 - Song was already submitted
+Code: 450 - Contest does not exists 
 ```
 
 ```
-Status Code: 452 - Maximum number of allowed songs already submitted
+Code: 451 - Song was already submitted
+```
+
+```
+Code: 452 - Maximum number of allowed songs already submitted
 ```
 
 ```  
-Status Code: 453 - The participant can not delete this song (not its owner)
+Code: 453 - The participant can not delete this song (not its owner)
 ```
 
 ```
-Status Code: 454 - Error authenticating / connecting to the Spotify's API
+Code: 454 - Error authenticating / connecting to the Spotify's API
 ```
 
 ```
-Status Code: 455 - Error parsing the provided Spotify's Track URI
+Code: 455 - Error parsing the provided Spotify's Track URI
 ```
 
 
