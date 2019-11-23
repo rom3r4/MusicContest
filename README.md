@@ -73,6 +73,8 @@ GET        /current_contest
 
 ```
 GET        /current_contest_songs
+   return codes:
+   -- 200: ok
 ```
 
 ```
