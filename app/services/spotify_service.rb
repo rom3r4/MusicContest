@@ -15,7 +15,7 @@ class SpotifyService
   API_URI       = "https://api.spotify.com/v1/"
   TOKEN_URI     = "https://accounts.spotify.com/api/token"
 
-  attr_reader :valid, :url, :track_id, :title, :cover, :artist, :length, :album
+  attr_reader :valid, :url, :track_id
 
   def initialize(track_url)
     @url = track_url
@@ -28,7 +28,6 @@ class SpotifyService
     if @valid
       @access_token = access_token
       @track = track
-      puts @track.to_json
     else
       false
     end
@@ -38,11 +37,34 @@ class SpotifyService
     @valid
   end
 
+  def title
+    @response.key?("name") ? @response["name"] : nil
+  end
+
+  def length
+    @response.key?("duration_ms") ? @response["duration_ms"] : nil
+  end
+
+  def artist
+    artist_hash = @response.key?("artists") && !@response["artists"].empty? ? @response["artists"].first : nil
+    artist_hash.is_a?(Hash) && artist_hash.key?("name") ? artist_hash["name"] : nil
+  end
+
+  def album
+    album_hash = @response.is_a?(Hash) && @response.key?("album") ? @response["album"] : nil
+    album_hash.key?("name") ? album_hash["name"] : nil
+  end
+
+  def cover
+    image_hash = album.key?("images") && !album["images"].empty? ? album["images"].first : nil
+    image_hash.key?("url") ? image_hash["url"] : nil
+  end
+
   private
 
   def track
-    response = RestClient.get("#{API_URI}tracks/#{@track_id}", auth_header_token)
-    JSON.parse(response)
+    rest_response = RestClient.get("#{API_URI}tracks/#{@track_id}", auth_header_token)
+    @response = JSON.parse(rest_response)
   rescue RestClient::Unauthorized, RestClient::BadRequest
     raise ExceptionHandler::SpotifyAPIError, "Error Accessing Spotify's API. Unauthorized"
   end
