@@ -27,11 +27,11 @@ class SpotifyService
   def fetch
     if @valid
       @access_token = access_token
+      @track = track
+      puts @track.to_json
     else
-      puts "kk"
       false
     end
-    puts @access_token.to_json
   end
 
   def valid?
@@ -40,13 +40,20 @@ class SpotifyService
 
   private
 
+  def track
+    response = RestClient.get("#{API_URI}tracks/#{@track_id}", auth_header_token)
+    JSON.parse(response)
+  rescue RestClient::Unauthorized, RestClient::BadRequest
+    raise ExceptionHandler::SpotifyAPIError, "Error Accessing Spotify's API. Unauthorized"
+  end
+
   def access_token
     @client_id = ENV.fetch("SPOTIFY_CLIENT_ID") { "" }
     @client_secret = ENV.fetch("SPOTIFY_CLIENT_SECRET") { "" }
     request_body = {grant_type: "client_credentials"}
     response = RestClient.post(TOKEN_URI, request_body, auth_header)
     JSON.parse(response)["access_token"]
-  rescue RestClient::Unauthorized 
+  rescue RestClient::Unauthorized, RestClient::BadRequest
     raise ExceptionHandler::SpotifyAPIError, "Error Accessing Spotify's API. Unauthorized"
   end
 
@@ -67,6 +74,10 @@ class SpotifyService
   def auth_header
     authorization = Base64.strict_encode64("#{@client_id}:#{@client_secret}")
     {"Authorization" => "Basic #{authorization}"}
+  end
+
+  def auth_header_token
+    {"Authorization" => "Bearer #{@access_token}"}
   end
 
   def get_headers(params)

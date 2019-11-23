@@ -49,38 +49,13 @@ RSpec.describe "Songs", type: :request do
   describe "POST /submit_song (correct spotify TrackId - 1)" do
     it "post /submit_song endpoint exists and is correct" do
       post "/submit_song", params: correct_trackid1
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status(454)
     end
   end
   describe "POST /delete_song (correct spotify TrackId - 1)" do
     it "post /delete_song endpoint exists and is correct" do
       post "/delete_song", params: correct_trackid1
-      expect(response).to have_http_status(450)
-    end
-  end
-  describe "POST /submit_song (correct spotify TrackId - 2)" do
-    it "post /submit_song endpoint exists and is correct" do
-      post "/submit_song", params: correct_trackid2
-      expect(response).to have_http_status(201)
-    end
-  end
-  describe "POST /delete_song (correct spotify TrackId - 2)" do
-    it "post /delete_song endpoint exists and is correct" do
-      post "/delete_song", params: correct_trackid2
-      expect(response).to have_http_status(450)
-    end
-  end
-  describe "POST /submit_song (correct spotify TrackId - 3)" do
-    it "post /submit_song endpoint exists and is correct" do
-      post "/submit_song", params: correct_trackid3
-      expect(response).to have_http_status(201)
-    end
-  end
-  describe "POST /delete_song (correct spotify TrackId - 3)" do
-    it "post /delete_song endpoint exists and is correct" do
-      post "/delete_song", params: correct_trackid3
-      puts response.parsed_body
-      expect(response).to have_http_status(450)
+      expect(response).to have_http_status(454)
     end
   end
 end
