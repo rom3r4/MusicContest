@@ -30,9 +30,9 @@ module ExceptionHandler
       rescue_from ExceptionHandler::AccessDenied, with: :access_denied
       rescue_from ExceptionHandler::UnavailableMethodError, with: :unavailable_method
       rescue_from ExceptionHandler::NotImplementedMethodError, with: :not_implemented_method
-      rescue_from ExceptionHandler::ContestNotFound, with: :application_not_found
-      rescue_from ExceptionHandler::ParticipantNotFound, with: :application_not_found
-      rescue_from ExceptionHandler::SongNotFound, with: :application_not_found
+      rescue_from ExceptionHandler::ContestNotFound, with: :contest_not_found
+      rescue_from ExceptionHandler::ParticipantNotFound, with: :participant_not_found
+      rescue_from ExceptionHandler::SongNotFound, with: :song_not_found
       rescue_from ExceptionHandler::SongWasAlreadySubmitted, with: :song_was_already_sumbitted
       rescue_from ExceptionHandler::MaximumSongsSubmitted, with: :maximum_songs_submitted
       rescue_from ExceptionHandler::ParticipantCannotDelete, with: :participant_cannot_delete
@@ -78,9 +78,17 @@ module ExceptionHandler
     render json: {error: raised_exception.message}, status: :unauthorized
   end
 
-  # Custon Application Exceptions Status codes 450 - 499
+  # Custon Application Exceptions Status codes 440 - 499
 
-  def application_not_found(raised_exception)
+  def contest_not_found(raised_exception)
+    render json: {error: raised_exception.message}, status: 448
+  end
+
+  def participant_not_found(raised_exception)
+    render json: {error: raised_exception.message}, status: 449
+  end
+
+  def song_not_found(raised_exception)
     render json: {error: raised_exception.message}, status: 450
   end
 
